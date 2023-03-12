@@ -25,6 +25,7 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <GL/glew.h>
 
 namespace lab {
+
     class ShaderProgram {
 
     private:
@@ -46,21 +47,23 @@ namespace lab {
         ~ShaderProgram();
 
         // Włącza wykorzystywanie programu cieniującego
-        void use();
+        void use() const;
 
         // Pobiera numer slotu związanego z daną zmienną jednorodną
-        GLuint u(const char* variable_name);
+        GLuint u(const char* variable_name) const;
 
         // Pobiera numer slotu związanego z danym atrybutem
-        GLuint a(const char* variable_name);
+        GLuint a(const char* variable_name) const;
     };
 
-    void initShaders();
+    namespace shaders {
 
-    void freeShaders();
+        extern ShaderProgram* spConstant, * spLambert;
+
+        void init();
+
+        void dispose();
+    }
 }
-
-extern lab::ShaderProgram* spConstant;
-extern lab::ShaderProgram* spLambert;
 
 #endif

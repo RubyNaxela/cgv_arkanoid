@@ -8,6 +8,8 @@ link_directories(lib/glfw-3.3.8/lib-arm64 /opt/homebrew/Cellar/glew/2.2.0_1/lib)
 
 add_executable(lab_project
         src/main.cpp
+        src/ark/opengl_program.cpp
+        src/ark/render_window.cpp
         src/lab/shaderprogram.cpp
 )
 
